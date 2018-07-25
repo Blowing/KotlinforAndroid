@@ -6,7 +6,10 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.Menu
 import android.view.MenuItem
-
+import com.wujie.kotlinforandroid.adapter.ForeastListAdapter
+import com.wujie.kotlinforandroid.request.RequestForecastCommand
+import org.jetbrains.anko.async
+import org.jetbrains.anko.uiThread
 
 
 class MainActivity : AppCompatActivity() {
@@ -16,6 +19,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val foreastList = findViewById<RecyclerView>(R.id.forecast_list)
         foreastList.layoutManager = LinearLayoutManager(this)
+
+        async {
+            val result = RequestForecastCommand("94043").exceute()
+            uiThread {
+                foreastList.adapter = ForeastListAdapter(result)
+            }
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

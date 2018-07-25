@@ -3,22 +3,25 @@ package com.wujie.kotlinforandroid.adapter
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
 import android.widget.TextView
+import com.wujie.kotlinforandroid.domain.ForecastList
 
 /**
  * Created by wujie on 2018/7/24/024.
  */
-class ForeastListAdapter(val itmes: List<String>) :
+class ForeastListAdapter(val itmes: ForecastList) :
         RecyclerView.Adapter<ForeastListAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
         return ViewHolder(TextView(parent?.context))
     }
 
     override fun getItemCount(): Int {
-        return itmes.size
+        return itmes.dailyForecast.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
-        holder?.textView?.text = itmes[position]
+        with(itmes.dailyForecast[position]) {
+            holder?.textView?.text = "$date -$description -$high/$low"
+        }
     }
 
 

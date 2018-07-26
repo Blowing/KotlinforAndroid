@@ -35,4 +35,7 @@ public class ForecastDataMapper{
         val df = DateFormat.getDateInstance(DateFormat.MEDIUM, Locale.getDefault())
         return df.format(date*1000)
     }
+
+    private fun generateIconUrl(iconCode: String): String = "http://openweathermap" +
+            ".org/img/w/$iconCode.png"
 }

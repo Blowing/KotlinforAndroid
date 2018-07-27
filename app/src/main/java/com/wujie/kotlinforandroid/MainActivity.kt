@@ -9,10 +9,12 @@ import android.view.MenuItem
 import com.wujie.kotlinforandroid.adapter.ForeastListAdapter
 import com.wujie.kotlinforandroid.request.RequestForecastCommand
 import org.jetbrains.anko.async
+import org.jetbrains.anko.toast
 import org.jetbrains.anko.uiThread
 
 
 class MainActivity : AppCompatActivity() {
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,7 +25,11 @@ class MainActivity : AppCompatActivity() {
         async {
             val result = RequestForecastCommand("94043").exceute()
             uiThread {
-                foreastList.adapter = ForeastListAdapter(result)
+                    val adapter = ForeastListAdapter(result) {
+                        forecast ->  toast(forecast.date)
+                    }
+                foreastList.adapter = adapter
+
             }
         }
     }

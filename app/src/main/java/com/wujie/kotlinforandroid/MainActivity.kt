@@ -21,6 +21,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val foreastList = findViewById<RecyclerView>(R.id.forecast_list)
         foreastList.layoutManager = LinearLayoutManager(this)
+        val list = listOf(1,2, 3,4)
+        list.take(2)
+        list.slice(listOf(1,3,4))
+        assert(list.all { it % 2 == 0 })
+        assert(list.count{ it %2 == 0})
 
         async {
             val result = RequestForecastCommand("94043").exceute()

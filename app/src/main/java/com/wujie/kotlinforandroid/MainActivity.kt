@@ -1,5 +1,6 @@
 package com.wujie.kotlinforandroid
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
@@ -25,7 +26,12 @@ class MainActivity : AppCompatActivity() {
         list.take(2)
         list.slice(listOf(1,3,4))
         assert(list.all { it % 2 == 0 })
-        assert(list.count{ it %2 == 0})
+        val a: Int? = null
+
+
+        val myString = a?.toString() ?: throw IllegalStateException()
+
+
 
         async {
             val result = RequestForecastCommand("94043").exceute()
@@ -37,6 +43,9 @@ class MainActivity : AppCompatActivity() {
 
             }
         }
+
+        val intent: Intent ?= null
+        intent!!.setClass(MainActivity@this, Class.forName(MainActivity@this))
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

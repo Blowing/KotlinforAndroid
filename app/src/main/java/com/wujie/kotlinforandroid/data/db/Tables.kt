@@ -1,4 +1,4 @@
-package com.wujie.kotlinforandroid.data.server
+package com.wujie.kotlinforandroid.data.db
 
 /**
  * Created by wujie on 2018/7/31/031.

@@ -1,4 +1,4 @@
-package com.wujie.kotlinforandroid.model
+package com.wujie.kotlinforandroid.domain.model
 
 /**
  * Created by wujie on 2018/7/31/031.

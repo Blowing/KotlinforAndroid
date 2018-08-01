@@ -1,7 +1,7 @@
 package com.wujie.kotlinforandroid.data.db
 
-import com.wujie.kotlinforandroid.model.Forecast
-import com.wujie.kotlinforandroid.model.ForecastList
+import com.wujie.kotlinforandroid.domain.model.Forecast
+import com.wujie.kotlinforandroid.domain.model.ForecastList
 
 /**
  * Created by wujie on 2018/7/31/031.

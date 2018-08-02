@@ -39,7 +39,7 @@ interface ToolBarmanager {
     }
 
     @SuppressLint("NewApi")
-    fun enableHomeAsUp(up: () -> Unit) {
+    fun enableHomeAsUp(up:() -> Unit) {
         toolbar.navigationIcon = createUpDrawable()
         toolbar.setNavigationOnClickListener { up() }
     }

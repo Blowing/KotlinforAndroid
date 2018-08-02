@@ -14,6 +14,7 @@ class ForecastProvider(private val sources: List<ForecastDataSource> = ForecastP
     companion object {
         const  val DAY_IN_MILLIS = 1000 * 60 * 60 * 24
         val SOURCES by lazy { listOf(ForecastDb(), ForecastServer()) }
+
     }
 
     fun requestByZipCode(zipCode: Long, days: Int): ForecastList = requestToSources {

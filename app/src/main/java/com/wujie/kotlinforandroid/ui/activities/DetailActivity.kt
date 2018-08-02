@@ -15,6 +15,7 @@ import com.wujie.kotlinforandroid.domain.model.Forecast
 import com.wujie.kotlinforandroid.extensions.color
 import com.wujie.kotlinforandroid.extensions.textColor
 import com.wujie.kotlinforandroid.extensions.toDateString
+import com.wujie.kotlinforandroid.view.MyEditText
 import kotlinx.android.synthetic.main.activity_detail.*
 
 import kotlinx.coroutines.experimental.android.UI
@@ -37,9 +38,11 @@ class DetailActivity : AppCompatActivity(), ToolBarmanager {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
 
+
         initToolbar()
 
         toolbarTitle = intent.getStringExtra(CITY_NAME)
+        MyEditText.setEditTextNoSoftInput(edit_text)
         enableHomeAsUp { onBackPressed() }
         async(UI) {
             val result = bg{ RequestDayForecastCommand(intent.getLongExtra(ID, -1)).execute()}

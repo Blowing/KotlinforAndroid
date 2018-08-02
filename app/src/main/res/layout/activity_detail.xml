@@ -62,6 +62,16 @@
     </LinearLayout>
 
 
+    <EditText
+        android:id="@+id/edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="heheheheh"
+        android:textSize="18sp"
+        android:gravity="bottom"
+        />
+
+
 
 
 

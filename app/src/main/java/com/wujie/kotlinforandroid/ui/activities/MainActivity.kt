@@ -6,18 +6,15 @@ import android.support.annotation.RequiresApi
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.Toolbar
-
 import com.wujie.kotlinforandroid.R
 import com.wujie.kotlinforandroid.domain.commands.RequestForecastComand
 import com.wujie.kotlinforandroid.domain.model.ForecastList
 import com.wujie.kotlinforandroid.extensions.DelegatesExt
 import com.wujie.kotlinforandroid.ui.adapter.ForecastListAdapter
-import org.jetbrains.anko.coroutines.experimental.bg
-
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.experimental.android.UI
 import kotlinx.coroutines.experimental.async
-
+import org.jetbrains.anko.coroutines.experimental.bg
 import org.jetbrains.anko.find
 import org.jetbrains.anko.startActivity
 
@@ -40,6 +37,7 @@ class MainActivity : AppCompatActivity(), ToolBarmanager {
     override fun onResume() {
         super.onResume()
         loadForecast()
+
     }
 
     @RequiresApi(Build.VERSION_CODES.JELLY_BEAN)

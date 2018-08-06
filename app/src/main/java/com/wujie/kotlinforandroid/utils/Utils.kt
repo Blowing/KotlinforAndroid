@@ -1,8 +1,13 @@
 package com.wujie.kotlinforandroid.utils
 
 import android.app.Activity
+import android.content.Context
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Build
 import android.support.annotation.ColorInt
+import android.support.v7.app.AlertDialog
 import android.view.View
 import android.view.Window
 import android.view.WindowManager
@@ -46,7 +51,21 @@ class Utils {
                 }
                 window.statusBarColor = colorPref
             }
+        }
 
+        fun isAppInStalled(context: Context, packageName: String) : Boolean{
+            val packageInfo = context.packageManager.getPackageInfo(packageName,
+                    PackageManager.COMPONENT_ENABLED_STATE_DEFAULT)
+            return packageInfo != null
+        }
+
+        fun showGoTomarketDialog(activity: Activity, downloadUrl: String) {
+            val dialog = AlertDialog.Builder(activity)
+            dialog.setMessage("下载该应用")
+                    .setPositiveButton("确定") { _, _ ->
+                        val intent = Intent(Intent.ACTION_VIEW,Uri.parse(downloadUrl))
+                        activity.startActivity(intent)
+                    }.setNegativeButton("取消") { dialog, _ -> dialog?.cancel() }
         }
     }
 }

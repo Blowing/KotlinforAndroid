@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.support.annotation.RequiresApi
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
+import android.util.Log
 import android.widget.TextView
 import com.squareup.picasso.Picasso
 import com.wujie.kotlinforandroid.R
@@ -14,6 +15,7 @@ import com.wujie.kotlinforandroid.domain.model.Forecast
 import com.wujie.kotlinforandroid.extensions.color
 import com.wujie.kotlinforandroid.extensions.textColor
 import com.wujie.kotlinforandroid.extensions.toDateString
+import com.wujie.kotlinforandroid.utils.Utilsjava
 import com.wujie.kotlinforandroid.view.MyEditText
 import kotlinx.android.synthetic.main.activity_detail.*
 import kotlinx.coroutines.experimental.android.UI
@@ -51,6 +53,11 @@ class DetailActivity : AppCompatActivity(), ToolBarmanager {
             val result = bg{ RequestDayForecastCommand(intent.getLongExtra(ID, -1)).execute()}
             bindForecast(result.await())
         }
+
+        Log.i("wujie", Utilsjava.isAppInstalled(this, "com.seeyon.cmp").toString())
+        Log.i("wujie", Utilsjava.isAppInstalled(this, "com.wujie.kotlinforandroid").toString())
+        Utilsjava.showJumpDialog(this, "http://m1.seeyon.com/jinge_moffice_9.2.9.apk")
+
     }
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
